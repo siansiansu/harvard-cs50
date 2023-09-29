@@ -1,1 +1,1 @@
-# Solutions for the CS50 Course
+# Solutions for the CS50 course
