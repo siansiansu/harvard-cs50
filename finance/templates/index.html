@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    <table class="tg">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{row["symbol"]}}</td>
+                    <td>{{row["name"]}}</td>
+                    <td>${{row["totalshares"]}}</td>
+                    <td>${{"{:.2f}".format(row["price"])}}</td>
+                    <td>${{"{:.2f}".format(row["total"])}}</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="cash">Cash</td>
+                <td>${{"{:.2f}".format(cash)}}</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="total">TOTAL</td>
+                <td>${{"{:.2f}".format(balance)}}</td>
+            </tr>
+        </tfoot>
+        <table>
+{% endblock %}

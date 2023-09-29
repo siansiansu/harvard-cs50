@@ -1,0 +1,53 @@
+sort1 uses: Bubble Sort
+
+How do you know?:
+By running the following command:
+
+```shell
+time ./sort1 sorted10000.txt
+# real    0m0.042s
+# user    0m0.000s
+# sys     0m0.020s
+
+time ./sort2 sorted10000.txt
+# real    0m0.041s
+# user    0m0.000s
+# sys     0m0.020s
+
+time ./sort3 sorted10000.txt
+# real    0m0.051s
+# user    0m0.013s
+# sys     0m0.024s
+```
+
+Inspecting the "real" field, it becomes apparent that bubble sort should outperform merge sort and selection sort when dealing with an already sorted list.
+
+sort2 uses: Merge Sort
+How do you know?:
+By running the following command:
+
+```shell
+time ./sort1 reversed10000.txt
+# real    0m0.258s
+# user    0m0.167s
+# sys     0m0.045s
+
+time ./sort2 reversed10000.txt
+# real    0m0.041s
+# user    0m0.004s
+# sys     0m0.032s
+
+time ./sort3 reversed10000.txt
+
+# real    0m0.114s
+# user    0m0.076s
+# sys     0m0.034s
+```
+
+If we focus on the "real" field, it's evident that "sort2" likely employs the merge sort algorithm. This deduction is based on the observed execution times, as the time complexity of merge sort should be more efficient than bubble sort and selection sort when dealing with a reversed list.
+
+sort3 uses: Selection Sort
+
+How do you know?:
+
+Selection sort appears to be less efficient across various scenarios, as indicated by the results above, with "sort3" using the selection sort algorithm.

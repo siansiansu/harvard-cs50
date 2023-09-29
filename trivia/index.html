@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", function() {
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#feedback1').innerHTML = 'correct';
+                });
+
+                let incorrect = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrect.length; i++) {
+                    incorrect[i].addEventListener('click', function() {
+                        incorrect[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = 'incorrect';
+                    });
+                }
+                document.querySelector('.check_answer').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value == 'Switzerland') {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'correct';
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'incorrect';
+                    }
+                })
+
+                document.querySelector('.check_fruits').addEventListener('click', function() {
+                    let input = document.querySelector('#fruits');
+                    if (input.value == 'apple') {
+                        document.querySelector('#feedback3').innerHTML = 'correct';
+                    } else {
+                        document.querySelector('#feedback3').innerHTML = 'incorrect';
+                    }
+                })
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- Add multiple choice question here -->
+                <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+                <button class="incorrect" type="button">6 people per 1 sheep</button>
+                <button class="incorrect" type="button">3 people per 1 sheep</button>
+                <button class="incorrect" type="button">1 people per 1 sheep</button>
+                <button class="incorrect" type="button">1 people per 3 sheep</button>
+                <button class="correct" type="button">1 people per 6 sheep</button>
+                <p id="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- Add free response question here -->
+                <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+                <input type="text" id="answer" name="answer">
+                <button class="check_answer" type="button">Check Answer</button>
+                <p id="feedback2"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 3: Drop-down Menu</h2>
+                <hr>
+                <h3>Identifying a Red Fruit</h3>
+                <form action="#">
+                    <select name="fruits" id="fruits">
+                        <option value="select">Select a fruit</option>
+                        <option value="apple">Apple</option>
+                        <option value="orange">Orange</option>
+                        <option value="lemon">lemon</option>
+                        <option value="banana">Banana</option>
+                    </select>
+                    <br>
+                    <button class="check_fruits" type="button"> Check Option</button>
+                </form>
+                <p id="feedback3"></p>
+            </div>
+        </div>
+    </body>
+
+</html>

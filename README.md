@@ -1,1 +1,1 @@
-# cs50-2023
+# Solutions for the CS50 Course
